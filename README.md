@@ -1,0 +1,1 @@
+Om man tar in nomineringar via google forms (Fråga henrik exakt hur han gjorde!) kan man exportera som csv, som det här scriptet sedan gosar med
