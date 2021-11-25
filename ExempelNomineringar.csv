@@ -1,4 +1,4 @@
-Datum,Post1,Person1,Motivering
-Datum,Post2,Person1,Motivering
-Datum,Post1,Person2,Motivering
-Datum,Post3,Person2,Motivering
+Datum,Post1,Person1,Motivering,mail1
+Datum,Post2,Person1,Motivering,mail1
+Datum,Post1,Person2,Motivering,mail2
+Datum,Post3,Person2,Motivering,mail2
