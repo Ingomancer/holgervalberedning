@@ -10,8 +10,9 @@ svarsmail = "mail@mail.mail"
 tjatdag = "nåndag"
 nomineringsfil = "ExempelNomineringar.csv"
 mail_dir = "mail"
-gmail_user = "mail@mail.mail"
-gmail_password = 'NOPE'
+mail_user = "mail@mail.mail"
+mail_password = 'NOPE'
+mail_service = 'smtp.gmail.com'
 
 mail_template = """\
 Hej​! ​
@@ -56,9 +57,9 @@ def generate_emails():
                 output.write(mail_template.format(poster="\n".join(poster), deadline=deadline, svarsmail=svarsmail, tjatdag=tjatdag, valberedningen=valberedningen))
 
 def send_emails():
-    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server = smtplib.SMTP_SSL(mail_service, 465)
     server.ehlo()
-    server.login(gmail_user, gmail_password)
+    server.login(mail_user, mail_password)
     for filename in os.listdir(mail_dir):
         mail = filename
         with open(f"{mail_dir}/{filename}", 'r', encoding="UTF-8") as f:
@@ -66,7 +67,7 @@ def send_emails():
         msg = EmailMessage()
         msg.set_content(content)
         msg['Subject'] = "Du har blivit nominerad!"
-        msg['From'] = gmail_user
+        msg['From'] = mail_user
         msg['To'] = mail
         server.send_message(msg)
     server.close
